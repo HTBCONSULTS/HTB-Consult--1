@@ -21,7 +21,7 @@ import { useEnrollments } from "@/hooks/use-enrollments";
 import { useAuth } from "@/contexts/AuthContext";
 import { breadcrumbSchema, courseListSchema, SEO_PAGES, SITE_ORIGIN, setSeoMetadata } from "@/lib/seo";
 
-/* ── Category folder metadata (5 official pathways) ── */
+/* ── Category folder metadata (6 official pathways) ── */
 const FOLDERS = [
   {
     key: "Business Analysis & Digital Transformation",
@@ -275,6 +275,54 @@ const FOLDERS = [
       cohortSub:
         "Learn how to recognise common threats, protect everyday systems and respond methodically when a security incident occurs.",
       cta: "Build a practical foundation for your first step into cybersecurity.",
+    },
+  },
+  {
+    key: "AI, Large Language Models & Prompt Engineering",
+    label: "AI, Large Language Models & Prompt Engineering",
+    aliases: [],
+    description:
+      "Understand generative AI, write effective prompts and build practical workflows for research, communication and productivity. Learn to check outputs and use AI responsibly.",
+    audience: "Students, professionals and business owners. No coding experience required.",
+    icon: Brain,
+    accent: "hsl(245 70% 55%)",
+    surface: "bg-indigo-50/45",
+    iconBg: "bg-indigo-500/15",
+    iconColor: "text-indigo-700",
+    borderIdle: "border-indigo-500/15",
+    borderHover: "hover:border-indigo-500/50",
+    glow: "hover:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.18)]",
+    tag: "AI Skills",
+    tagCls: "bg-indigo-500/15 text-indigo-700 border-indigo-500/25",
+    programme: {
+      type: "live" as const,
+      badge: "AI & Prompt Engineering Programme",
+      subtitle:
+        "Build practical confidence with generative AI, large language models and prompt engineering through guided exercises and responsible-use scenarios.",
+      learn: [
+        "Generative AI Foundations",
+        "Large Language Models",
+        "Prompt Engineering Principles",
+        "Research and Productivity Workflows",
+        "Checking AI Outputs",
+        "Responsible AI Use",
+      ],
+      delivery: [
+        "Live Zoom Sessions",
+        "Practical Workshops",
+        "Interactive Group Discussions",
+        "Practical Course Resources",
+        "Certificate of Completion",
+      ],
+      who: [
+        "Students",
+        "Working Professionals",
+        "Business Owners",
+        "Career Changers",
+      ],
+      cohortSub:
+        "Learn to use AI thoughtfully and effectively in everyday research, communication and professional workflows.",
+      cta: "Build practical AI confidence without needing prior coding experience.",
     },
   },
 ];
@@ -658,7 +706,6 @@ const Courses = () => {
                       return (
                         <motion.div
                           key={folder.key}
-                          className={folder.key === "Cybersecurity Bootcamp" ? "lg:col-span-2" : undefined}
                           initial="hidden"
                           whileInView="visible"
                           viewport={{ once: true }}

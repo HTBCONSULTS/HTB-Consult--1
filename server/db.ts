@@ -115,14 +115,15 @@ export async function runMigrations() {
       ALTER TABLE users ADD COLUMN IF NOT EXISTS locked_until TIMESTAMPTZ;
     `);
 
-    // Sync to the 5 official course pathways (insert new, remove all legacy names)
+    // Sync to the 6 official course pathways (insert new, remove all legacy names)
     await client.query(`
       INSERT INTO categories (name) VALUES
         ('Business Analysis & Digital Transformation'),
         ('Business Process Improvement & Operational Excellence'),
         ('Change Management & Business Transformation'),
         ('Agile, Product & Project Delivery Management'),
-        ('Cybersecurity Bootcamp')
+        ('Cybersecurity Bootcamp'),
+        ('AI, Large Language Models & Prompt Engineering')
       ON CONFLICT (name) DO NOTHING;
 
       DELETE FROM categories WHERE name IN (

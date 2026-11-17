@@ -241,6 +241,20 @@ const HOME_FOLDERS = [
     tag: "Five-Day Bootcamp",
     tagCls: "bg-teal-500/15 text-teal-700 border-teal-500/25",
   },
+  {
+    key: "AI, Large Language Models & Prompt Engineering",
+    label: "AI, Large Language Models & Prompt Engineering",
+    description: "Understand generative AI, write effective prompts and build practical workflows for research, communication and productivity.",
+    audience: "Students, professionals and business owners. No coding experience required.",
+    aliases: [],
+    icon: Brain,
+    iconBg: "bg-indigo-500/15",
+    iconColor: "text-indigo-700",
+    accent: "border-indigo-500/25 hover:border-indigo-500/50",
+    glow: "hover:shadow-[0_12px_40px_-10px_rgba(79,70,229,0.15)]",
+    tag: "AI Skills",
+    tagCls: "bg-indigo-500/15 text-indigo-700 border-indigo-500/25",
+  },
 ];
 
 const Index = () => {
@@ -755,7 +769,7 @@ const Index = () => {
                     <span
                       className={`inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all duration-200 ${folder.iconColor}`}
                     >
-                      {folder.key === "Cybersecurity Bootcamp" ? "View Cybersecurity Course" : "Browse Courses"} <ArrowRight size={14} />
+                      {folder.key === "Cybersecurity Bootcamp" ? "View Cybersecurity Course" : folder.key === "AI, Large Language Models & Prompt Engineering" ? "View AI Courses" : "Browse Courses"} <ArrowRight size={14} />
                     </span>
                   </Link>
                 </motion.div>

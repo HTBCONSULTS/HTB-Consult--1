@@ -58,6 +58,7 @@ const popularPathways = [
   { label: "Change Management & Business Transformation", category: "Change Management & Business Transformation" },
   { label: "Agile, Product & Project Delivery", category: "Agile, Product & Project Delivery Management" },
   { label: "Cybersecurity Bootcamp", category: "Cybersecurity Bootcamp" },
+  { label: "AI, Large Language Models & Prompt Engineering", category: "AI, Large Language Models & Prompt Engineering" },
 ];
 
 const Footer = () => {
