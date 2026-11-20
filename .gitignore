@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# database dumps must never be committed
+*.sql.export
+htb_database_export.sql
+exports/

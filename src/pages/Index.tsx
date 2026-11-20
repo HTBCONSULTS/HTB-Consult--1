@@ -352,7 +352,7 @@ const Index = () => {
                 <Button size="lg" asChild
                   className="bg-gradient-gold hover:opacity-90 font-semibold px-8 h-12 shadow-orange btn-shimmer text-sm"
                 >
-                  <Link to="/services">Explore Pathways <ArrowRight className="ml-2" size={16} /></Link>
+                  <Link to="/services">View Programmes <ArrowRight className="ml-2" size={16} /></Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild
                   className="font-semibold px-8 h-12 glass border-white/20 hover:bg-white/10 text-white text-sm"
@@ -575,110 +575,7 @@ const Index = () => {
               <p className="text-sm text-slate-600">Join a pathway and start building practical skills for work.</p>
             </div>
             <Button asChild className="bg-gradient-gold hover:opacity-90 font-semibold px-7 h-11 text-sm btn-shimmer shadow-orange shrink-0">
-              <Link to="/auth?tab=signup">Enroll Now <ArrowRight className="ml-2" size={15} /></Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─────────────────── EXPLORE PROGRAMMES (white, seamless) ─────────────────── */}
-      <section className="py-16 lg:py-24 relative overflow-hidden bg-white">
-        {/* Subtle section divider */}
-        <div className="absolute top-0 left-6 right-6 lg:left-12 lg:right-12 h-px bg-slate-100" />
-
-        {/* Very light grid pattern */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        {/* Soft radial accent blobs */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[140px] opacity-[0.06] pointer-events-none"
-          style={{ background: "hsl(var(--primary))" }} />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          {/* Header */}
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="text-center mb-14"
-          >
-            <motion.p variants={fadeUp} custom={0}
-              className="text-xs font-bold uppercase tracking-[0.25em] mb-4"
-              style={{ color: "hsl(var(--primary))" }}
-            >
-              Start Your Journey
-            </motion.p>
-            <motion.h2 variants={fadeUp} custom={1}
-              className="text-3xl md:text-4xl lg:text-5xl font-serif text-slate-900 leading-tight"
-            >
-              Explore Our{" "}
-              <em className="not-italic text-gradient-gold">Programmes</em>
-            </motion.h2>
-            <motion.p variants={fadeUp} custom={2}
-              className="mt-4 text-slate-500 text-sm max-w-xl mx-auto leading-relaxed"
-            >
-              Choose the pathway that matches your experience level and career goals.
-            </motion.p>
-          </motion.div>
-
-          {/* Programme cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {programmes.map((prog, i) => (
-              <motion.div
-                key={prog.title}
-                initial="hidden" whileInView="visible" viewport={{ once: true }}
-                custom={i} variants={scaleIn}
-                className="card-lift"
-              >
-                <div className="bg-white rounded-2xl border border-slate-200 p-7 h-full hover:border-primary/40 hover:shadow-xl hover:shadow-primary/8 transition-all duration-300 group">
-                  {/* Icon */}
-                  <div className={`w-14 h-14 rounded-2xl ${prog.iconBg} flex items-center justify-center mb-5`}>
-                    <prog.icon size={24} />
-                  </div>
-                  {/* Badge */}
-                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4 ${prog.badgeColor}`}>
-                    {prog.badge}
-                  </span>
-                  {/* Title */}
-                  <h3 className="font-serif text-xl font-normal text-slate-900 mb-2 leading-snug">
-                    {prog.title}
-                  </h3>
-                  {/* Description */}
-                  <p className="text-sm text-slate-500 leading-relaxed mb-6">{prog.desc}</p>
-                  {/* CTA link */}
-                  <Link
-                    to="/courses"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all duration-200"
-                    style={{ color: "hsl(var(--primary))" }}
-                  >
-                    View Details <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom CTA row */}
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true }}
-            variants={fadeUp} custom={3}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button
-              asChild
-              className="bg-gradient-gold hover:opacity-90 font-semibold px-8 h-11 text-sm btn-shimmer shadow-orange"
-            >
-              <Link to="/auth?tab=signup">Get Started Free <ArrowRight className="ml-2" size={15} /></Link>
-            </Button>
-            <Button
-              asChild
-              className="bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold px-8 h-11 text-sm shadow-none"
-            >
-              <Link to="/courses">View All Courses</Link>
+              <Link to="/auth?tab=signup">Register <ArrowRight className="ml-2" size={15} /></Link>
             </Button>
           </motion.div>
         </div>
@@ -769,7 +666,7 @@ const Index = () => {
                     <span
                       className={`inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all duration-200 ${folder.iconColor}`}
                     >
-                      {folder.key === "Cybersecurity Bootcamp" ? "View Cybersecurity Course" : folder.key === "AI, Large Language Models & Prompt Engineering" ? "View AI Courses" : "Browse Courses"} <ArrowRight size={14} />
+                      {folder.key === "Cybersecurity Bootcamp" ? "View Cybersecurity Course" : folder.key === "AI, Large Language Models & Prompt Engineering" ? "View AI Courses" : "View Courses"} <ArrowRight size={14} />
                     </span>
                   </Link>
                 </motion.div>
@@ -956,7 +853,7 @@ const Index = () => {
                 asChild
                 className="bg-gradient-gold hover:opacity-90 font-semibold px-8 h-12 text-sm btn-shimmer shadow-orange"
               >
-                <Link to="/auth?tab=signup">Register Now <ArrowRight className="ml-2" size={16} /></Link>
+                <Link to="/auth?tab=signup">Register <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
               <Button
                 size="lg"
@@ -964,7 +861,7 @@ const Index = () => {
                 asChild
                 className="glass border-white/20 hover:bg-white/10 text-white font-semibold px-8 h-12 text-sm"
               >
-                <Link to="/services">Explore Pathways</Link>
+                <Link to="/services">View Programmes</Link>
               </Button>
             </motion.div>
           </div>

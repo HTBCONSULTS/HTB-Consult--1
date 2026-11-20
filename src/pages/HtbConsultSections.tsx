@@ -121,80 +121,10 @@ const focusItems = [
 
 /* ══════════════════════════════════════════════════════════ */
 
-const AboutHTB = () => {
+/* HTB Consult sections, shown on the About page (formerly the separate /about-htb page). */
+export const HtbConsultSections = () => {
   return (
-    <Layout>
-
-      {/* ─────────────────── HERO ─────────────────── */}
-      <section className="relative overflow-hidden min-h-[60vh] flex items-center -mt-[72px] pt-[72px]">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1920&q=80&auto=format&fit=crop"
-            alt=""
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-        <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, hsl(var(--hero-overlay)) 50%, hsl(var(--hero-overlay) / 0.55) 80%, transparent)" }} />
-        <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 35%)" }} />
-        <div className="absolute inset-0 grid-pattern opacity-15" />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            {/* Left */}
-            <motion.div initial="hidden" animate="visible">
-              <motion.div variants={fadeIn} custom={0}
-                className="flex items-center gap-2 text-xs text-white/45 mb-6"
-              >
-                <Link to="/" className="hover:text-white/70 transition-colors">Home</Link>
-                <ChevronRight size={12} />
-                <span className="text-white/70">About HTB Academy</span>
-              </motion.div>
-
-              <motion.h1 variants={fadeUp} custom={1}
-                className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-white leading-[1.08] mb-3 tracking-display text-shadow-lg"
-              >
-                About HTB Academy
-              </motion.h1>
-
-              <motion.div variants={fadeIn} custom={2}
-                className="w-14 h-1 rounded-full mb-6"
-                style={{ background: "hsl(var(--primary))" }}
-              />
-
-              <motion.p variants={fadeUp} custom={3}
-                className="text-base lg:text-lg text-white/70 leading-[1.8] max-w-lg"
-              >
-                A learning platform built from real consulting experience — equipping individuals and organisations with practical skills that create lasting impact.
-              </motion.p>
-            </motion.div>
-
-            {/* Right — quote card */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="hidden lg:flex justify-end"
-            >
-              <div className="glass border border-white/15 rounded-2xl p-7 max-w-xs">
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: "hsl(var(--primary))" }}>
-                  <span className="text-white font-serif text-xl leading-none">&ldquo;</span>
-                </div>
-                <p className="text-white/90 font-medium leading-relaxed mb-2">Beyond theory.</p>
-                <p className="text-white/65 text-sm leading-relaxed">
-                  We help learners and teams build the confidence to solve problems, deliver projects, and contribute effectively in their roles.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-20"
-          style={{ background: "linear-gradient(to top, hsl(var(--background)), transparent)" }} />
-      </section>
+    <div id="htb-consult" className="scroll-mt-20">
 
       {/* ─────────────────── STATS (white) ─────────────────── */}
       <section className="py-16 lg:py-20 bg-white border-y border-slate-200 relative overflow-hidden">
@@ -446,48 +376,6 @@ const AboutHTB = () => {
         </div>
       </section>
 
-      {/* ─────────────────── CTA BANNER ─────────────────── */}
-      <section className="py-16 lg:py-20 relative overflow-hidden"
-        style={{ background: "var(--gradient-cta-bg)" }}
-      >
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "hsl(var(--primary) / 0.3)" }} />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-
-            <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
-              style={{ background: "hsl(var(--primary) / 0.15)", border: "1px solid hsl(var(--primary) / 0.3)" }}>
-              <Rocket size={28} style={{ color: "hsl(var(--primary))" }} />
-            </div>
-
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-serif font-normal text-white leading-snug mb-2">
-                Ready to take the next step?
-              </h2>
-              <p className="text-sm text-white/50 leading-relaxed">
-                Explore our courses and learning pathways designed to build real, industry-ready skills.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 shrink-0 justify-center">
-              <Button asChild size="lg"
-                className="bg-gradient-gold hover:opacity-90 font-semibold px-7 h-12 text-sm btn-shimmer shadow-orange"
-              >
-                <Link to="/services">Explore Pathways <ArrowRight className="ml-2" size={15} /></Link>
-              </Button>
-              <Button asChild size="lg"
-                className="bg-white/8 border border-white/20 text-white hover:bg-white/15 font-semibold px-7 h-12 text-sm"
-              >
-                <Link to="/courses">View Courses</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </Layout>
+    </div>
   );
 };
-
-export default AboutHTB;

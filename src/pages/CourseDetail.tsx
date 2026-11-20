@@ -1,3 +1,4 @@
+import { rememberNextPath } from "@/lib/next-path";
 import { useState, useCallback, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import PaymentModal from "@/components/PaymentModal";
@@ -106,7 +107,7 @@ const CourseDetail = () => {
   });
 
   const handleEnroll = useCallback(async () => {
-    if (!user) { navigate("/auth?tab=signup"); return; }
+    if (!user) { rememberNextPath(`/course/${id}`); navigate("/auth?tab=signup"); return; }
     if (!data) return;
     const courseData = data.course;
     if (Number(courseData.price) > 0) {
@@ -258,7 +259,7 @@ const CourseDetail = () => {
                     className="w-full bg-gradient-gold hover:opacity-90 font-semibold btn-shimmer gap-2"
                     size="lg"
                     onClick={() => {
-                      if (!user) { navigate("/auth?tab=signup"); return; }
+                      if (!user) { rememberNextPath(`/course/${id}`); navigate("/auth?tab=signup"); return; }
                       setPaymentModalOpen(true);
                     }}
                   >

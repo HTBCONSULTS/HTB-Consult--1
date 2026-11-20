@@ -1,3 +1,4 @@
+import { takeNextPath } from "@/lib/next-path";
 import { useState, useEffect } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -41,7 +42,7 @@ const Auth = () => {
   const [unverifiedEmail, setUnverifiedEmail] = useState("");
 
   useEffect(() => {
-    if (!authLoading && user) navigate("/dashboard");
+    if (!authLoading && user) navigate(takeNextPath("/dashboard"));
   }, [user, authLoading, navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -60,7 +61,7 @@ const Auth = () => {
       setToken(result.token);
       setUser(result.user);
       toast({ title: "Welcome back!" });
-      navigate(loginMode === "mentor" ? "/mentor-dashboard" : "/dashboard");
+      navigate(takeNextPath(loginMode === "mentor" ? "/mentor-dashboard" : "/dashboard"));
     } catch (err: any) {
       if (err.message?.toLowerCase().includes("verify your email")) {
         setUnverifiedEmail(loginData.email);

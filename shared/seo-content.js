@@ -50,9 +50,9 @@ export const SEO_PAGES = {
     intro: "Browse hands-on courses in business analysis, project delivery, digital transformation and professional development, built from real consulting experience.",
   },
   "/services": {
-    title: "Professional Learning Pathways | HTB Academy",
+    title: "Programmes | HTB Consult Academy",
     description: "Explore HTB Academy learning pathways in business analysis, leadership, Agile delivery and industry specialisation.",
-    h1: "Learning Pathways for Professional Growth",
+    h1: "Programmes for Professional Growth",
     intro: "Choose a structured pathway that matches your experience, builds practical capability and helps you apply your learning in real work.",
   },
   "/about": {
@@ -60,12 +60,6 @@ export const SEO_PAGES = {
     description: "Learn how HTB Consult Academy combines practical training, real-world projects and expert mentorship to build workplace capability.",
     h1: "About HTB Consult Academy",
     intro: "We help professionals build practical skills, confidence and experience through structured learning and industry-focused training.",
-  },
-  "/about-htb": {
-    title: "About HTB Consult Ltd | Consulting & Academy",
-    description: "Discover HTB Consult's consulting and capability-development work, and how its Academy prepares professionals for workplace impact.",
-    h1: "About HTB Consult",
-    intro: "HTB Consult supports organisations and professionals through consulting, capability development and practical training.",
   },
   "/contact": {
     title: "Contact HTB Consult Academy | Course Enquiries",
@@ -84,6 +78,24 @@ export const SEO_PAGES = {
     description: "Meet the industry mentors helping HTB Academy learners develop practical skills and confidence for professional roles.",
     h1: "Learn with Industry Mentors",
     intro: "Build your capability with guidance from experienced professionals and mentors.",
+  },
+  "/cybersecurity": {
+    title: "Cybersecurity Bootcamp | HTB Consult Academy",
+    description: "A practical five-day cybersecurity bootcamp for beginners and career changers: protect devices and networks, spot threats and respond to incidents.",
+    h1: "Cybersecurity Bootcamp",
+    intro: "Five practical days of guided learning for beginners and career changers exploring their first role in cybersecurity.",
+  },
+  "/privacy": {
+    title: "Privacy Policy | HTB Consult Academy",
+    description: "How HTB Consult Academy collects, uses and protects your personal data.",
+    h1: "Privacy Policy",
+    intro: "How we collect, use and protect your personal data.",
+  },
+  "/terms": {
+    title: "Terms & Conditions | HTB Consult Academy",
+    description: "The terms that apply when you use the HTB Consult Academy website and enrol on our courses.",
+    h1: "Terms & Conditions",
+    intro: "The terms that apply when you use our website and enrol on our courses.",
   },
 };
 

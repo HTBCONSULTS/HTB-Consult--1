@@ -161,7 +161,7 @@ const Services = () => {
             <Home size={12} />
             <Link to="/" className="hover:text-white/70 transition-colors">Home</Link>
             <ChevronRight size={11} />
-            <span className="text-white/60">Learning Pathways</span>
+            <span className="text-white/60">Programmes</span>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -290,7 +290,7 @@ const Services = () => {
               <p className="text-sm text-slate-600">Create your Academy account and take the first step.</p>
             </div>
             <Button asChild className="bg-gradient-gold hover:opacity-90 font-semibold px-7 h-11 text-sm btn-shimmer shadow-orange shrink-0">
-              <Link to="/auth?tab=signup">Enroll Now <ArrowRight className="ml-2" size={15} /></Link>
+              <Link to="/auth?tab=signup">Register <ArrowRight className="ml-2" size={15} /></Link>
             </Button>
           </motion.div>
         </div>
@@ -419,7 +419,7 @@ const Services = () => {
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <Button size="lg" asChild className="bg-gradient-gold hover:opacity-90 font-semibold btn-shimmer px-6">
-                <Link to="/courses">Explore Courses</Link>
+                <Link to="/courses">View Courses</Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="border-white/20 text-white hover:bg-white/10 px-6">
                 <Link to="/contact">Talk to an Advisor</Link>

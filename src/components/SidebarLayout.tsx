@@ -23,7 +23,7 @@ const PRIMARY_NAV = [
   { icon: LayoutDashboard, label: "Dashboard",         path: "/dashboard" },
   { icon: BookOpen,        label: "My Learning",       path: "/my-learning" },
   { icon: GraduationCap,   label: "Courses",           path: "/courses" },
-  { icon: Route,           label: "Learning Pathways", path: "/services" },
+  { icon: Route,           label: "Programmes", path: "/services" },
   { icon: Video,           label: "Live Sessions",     path: "/sessions" },
   { icon: FolderOpen,      label: "Resources",         path: "/blog" },
   { icon: Users,           label: "Mentorship",        path: "/mentors" },

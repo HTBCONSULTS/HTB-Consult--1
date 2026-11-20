@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { fadeUp } from "@/lib/animations";
 import { api } from "@/lib/api";
+import { takeNextPath } from "@/lib/next-path";
 import { useAuth, setToken } from "@/contexts/AuthContext";
 import htbLogo from "@/assets/htb-logo-gold.webp";
 
@@ -22,6 +23,7 @@ const VerifyEmail = () => {
   const [resendEmail, setResendEmail] = useState("");
   const [resendLoading, setResendLoading] = useState(false);
   const [resendSent, setResendSent] = useState(false);
+  const [afterVerify] = useState(() => (token ? takeNextPath("/dashboard") : "/dashboard"));
 
   useEffect(() => {
     if (!token) return;
@@ -33,7 +35,7 @@ const VerifyEmail = () => {
           setToken(result.token);
           setUser(result.user);
           setStatus("success");
-          setTimeout(() => navigate("/dashboard"), 3000);
+          setTimeout(() => navigate(afterVerify), 3000);
         } else {
           setStatus("success");
         }
@@ -94,7 +96,7 @@ const VerifyEmail = () => {
               <h1 className="text-xl font-serif font-normal text-foreground mb-2">Email Verified!</h1>
               <p className="text-sm text-muted-foreground mb-6">{message || "Your account is now active. Redirecting you to your dashboard…"}</p>
               <Button asChild className="bg-gradient-gold hover:opacity-90 font-semibold w-full">
-                <Link to="/dashboard">Go to Dashboard</Link>
+                <Link to={afterVerify}>{afterVerify === "/dashboard" ? "Go to Dashboard" : "Continue to your course"}</Link>
               </Button>
             </>
           )}

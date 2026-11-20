@@ -45,10 +45,11 @@ const socialLinks = [
 
 const quickLinks = [
   { label: "Home", path: "/" },
-  { label: "Why HTB Academy", path: "/about" },
-  { label: "Learning Pathways", path: "/services" },
+  { label: "Programmes", path: "/services" },
   { label: "Courses", path: "/courses" },
-  { label: "About HTB Academy", path: "/about-htb" },
+  { label: "Mentors", path: "/mentors" },
+  { label: "Insights", path: "/blog" },
+  { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 

@@ -8,10 +8,10 @@ import htbLogo from "@/assets/htb-logo-gold.webp";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "Why HTB Academy", path: "/about" },
-  { label: "Learning Pathways", path: "/services" },
+  { label: "Programmes", path: "/services" },
   { label: "Courses", path: "/courses" },
-  { label: "About HTB Academy", path: "/about-htb" },
+  { label: "Mentors", path: "/mentors" },
+  { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -120,15 +120,10 @@ const Navbar = () => {
                 >
                   <Link to="/auth">Log In</Link>
                 </Button>
-                <Button variant="ghost" asChild size="sm"
-                  className="text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 border border-white/20"
-                >
-                  <Link to="/auth?tab=signup">Register</Link>
-                </Button>
                 <Button asChild size="sm"
                   className="bg-gradient-gold hover:opacity-90 font-semibold px-5 text-sm shadow-md btn-shimmer"
                 >
-                  <Link to="/courses">Explore Pathways</Link>
+                  <Link to="/auth?tab=signup">Register</Link>
                 </Button>
               </>
             )}

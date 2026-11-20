@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import { HtbConsultSections } from "./HtbConsultSections";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -454,6 +455,8 @@ const About = () => {
         </div>
       </section>
 
+      <HtbConsultSections />
+
       {/* ─────────────────── CTA BANNER ─────────────────── */}
       <section className="py-16 lg:py-20 relative overflow-hidden"
         style={{ background: "var(--gradient-cta-bg)" }}
@@ -484,12 +487,12 @@ const About = () => {
               <Button asChild size="lg"
                 className="bg-gradient-gold hover:opacity-90 font-semibold px-7 h-12 text-sm btn-shimmer shadow-orange"
               >
-                <Link to="/services">Explore Learning Pathways <ArrowRight className="ml-2" size={15} /></Link>
+                <Link to="/auth?tab=signup">Register <ArrowRight className="ml-2" size={15} /></Link>
               </Button>
               <Button asChild size="lg"
                 className="bg-white/8 border border-white/20 text-white hover:bg-white/15 font-semibold px-7 h-12 text-sm"
               >
-                <Link to="/courses">View Courses</Link>
+                <Link to="/services">View Programmes</Link>
               </Button>
             </div>
           </div>
