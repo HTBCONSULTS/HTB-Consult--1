@@ -243,6 +243,17 @@ export default async function seoPage(req, res) {
     return;
   }
 
+  if (/^\/programmes\/[a-z0-9-]+\/register$/.test(pathname)) {
+    sendSeoDocument(res, {
+      pathname,
+      title: "Register for a Programme | HTB Consult Academy",
+      description: "Register your interest in an HTB Consult Academy programme. No payment required now.",
+      h1: "Register for a Programme",
+      body: '<p><a href="/services">View all programmes</a></p>',
+    });
+    return;
+  }
+
   const mentorMatch = pathname.match(/^\/mentor\/([^/]+)$/);
   if (mentorMatch) {
     await sendMentorPage(res, pathname, mentorMatch[1]);

@@ -15,6 +15,10 @@ export function requireAuth(req: AuthRequest, res: Response, next: NextFunction)
   const token = header.slice(7);
   try {
     const decoded = jwt.verify(token, JWT_SECRET) as any;
+    // Sessions last 6 hours; this also ends older 30-day tokens issued before the limit.
+    if (typeof decoded.iat === "number" && Date.now() / 1000 - decoded.iat > 6 * 60 * 60) {
+      return res.status(401).json({ error: "Session expired. Please log in again." });
+    }
     req.user = { id: decoded.id, email: decoded.email, role: decoded.role };
     next();
   } catch {
@@ -56,5 +60,5 @@ export function requireMentorOrAdmin(req: AuthRequest, res: Response, next: Next
 }
 
 export function signToken(payload: { id: string; email: string; role: string }) {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: "30d" });
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: "6h" });
 }

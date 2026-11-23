@@ -7,7 +7,7 @@ const router = Router();
 router.get("/cybersecurity-interests", requireAdmin, async (_req, res) => {
   try {
     const { rows } = await pool.query(
-      `SELECT id, full_name, email, country, background, goal, consent, created_at
+      `SELECT id, full_name, email, country, background, goal, consent, programme, user_id, created_at
        FROM cybersecurity_interest_submissions
        ORDER BY created_at DESC`
     );
@@ -19,7 +19,7 @@ router.get("/cybersecurity-interests", requireAdmin, async (_req, res) => {
 
 router.get("/stats", requireAdmin, async (_req, res) => {
   try {
-    const [courses, mentors, enrollments, users, revenue, completed, bookings, articles] = await Promise.all([
+    const [courses, mentors, enrollments, users, revenue, completed, bookings, articles, registrations] = await Promise.all([
       pool.query("SELECT COUNT(*) FROM courses WHERE published = true"),
       pool.query("SELECT COUNT(*) FROM mentors WHERE published = true"),
       pool.query("SELECT COUNT(*) FROM enrollments"),
@@ -28,6 +28,7 @@ router.get("/stats", requireAdmin, async (_req, res) => {
       pool.query("SELECT COUNT(*) FROM enrollments WHERE completed = true"),
       pool.query("SELECT COUNT(*) FROM bookings WHERE status = 'confirmed'"),
       pool.query("SELECT COUNT(*) FROM articles WHERE published = true"),
+      pool.query("SELECT COUNT(*) FROM cybersecurity_interest_submissions"),
     ]);
     return res.json({
       courses: parseInt(courses.rows[0].count),
@@ -38,6 +39,7 @@ router.get("/stats", requireAdmin, async (_req, res) => {
       completed: parseInt(completed.rows[0].count),
       bookings: parseInt(bookings.rows[0].count),
       articles: parseInt(articles.rows[0].count),
+      registrations: parseInt(registrations.rows[0].count),
     });
   } catch (err) {
     return res.status(500).json({ error: "Failed to fetch stats" });

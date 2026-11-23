@@ -318,9 +318,6 @@ const Explore = () => {
                           </span>
                         ))}
                       </div>
-                      <p className="text-sm font-bold text-gradient-gold pt-0.5">
-                        {c.price > 0 ? `£${Number(c.price).toLocaleString()}` : "Free"}
-                      </p>
                     </div>
                   </div>
                 </Link>

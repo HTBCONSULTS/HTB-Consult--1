@@ -5,7 +5,7 @@ import { Star, CalendarDays, Briefcase, Search, Users, Award } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fadeUp, scaleIn } from "@/lib/animations";
-import SidebarLayout from "@/components/SidebarLayout";
+import Layout from "@/components/Layout";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useMentors } from "@/hooks/use-mentors";
 
@@ -42,7 +42,7 @@ const Mentors = () => {
   );
 
   return (
-    <SidebarLayout>
+    <Layout>
       {/* Page banner */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -178,7 +178,7 @@ const Mentors = () => {
           )}
         </motion.div>
       </div>
-    </SidebarLayout>
+    </Layout>
   );
 };
 

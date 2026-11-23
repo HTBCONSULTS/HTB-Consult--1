@@ -18,7 +18,7 @@ const adminLinks = [
   { icon: CalendarDays, label: "Enrollments", path: "/admin/enrollments" },
   { icon: Award, label: "Certificates", path: "/admin/certificates" },
   { icon: CreditCard, label: "Payments", path: "/admin/payments" },
-  { icon: ClipboardList, label: "Cybersecurity Interests", path: "/admin/cybersecurity-interests" },
+  { icon: ClipboardList, label: "Programme Registrations", path: "/admin/cybersecurity-interests" },
   { icon: Newspaper, label: "Articles", path: "/admin/articles" },
 ];
 

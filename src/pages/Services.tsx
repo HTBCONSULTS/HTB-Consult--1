@@ -19,8 +19,8 @@ const stages = [
     iconBg: "bg-blue-600",
     circleBg: "bg-blue-600",
     icon: BookOpen,
-    title: "BA Foundation Bootcamp",
-    short: "BA Foundation Bootcamp",
+    title: "Foundation Bootcamp",
+    short: "Foundation Bootcamp",
     desc: "Build a strong foundation in Business Analysis principles, techniques and best practices.",
     bullets: [
       "Business Analysis Fundamentals",

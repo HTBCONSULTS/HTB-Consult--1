@@ -4,7 +4,7 @@ import {
   ArrowRight, BookOpen, Target, CheckCircle, Star, Lightbulb,
   UserCheck, Briefcase, Brain, BarChart3, Quote, LogIn,
   LayoutDashboard, Sparkles, ChevronRight,
-  Users, Clock, Shield, Rocket, GraduationCap, Building2, Layers,
+  Users, Clock, Shield, Rocket, GraduationCap, Building2, Layers, Laptop, Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -38,7 +38,7 @@ const scaleIn = {
 const learningSteps = [
   {
     num: "01",
-    title: "BA Foundation Bootcamp",
+    title: "Foundation Bootcamp",
     desc: "Build strong foundations in Business Analysis principles, techniques and best practices.",
     tag: "Foundation",
     tagColor: "bg-blue-500/15 text-blue-400 border-blue-500/20",
@@ -138,7 +138,7 @@ const whyReasons = [
 
 const testimonials = [
   {
-    quote: "The BA Foundation Bootcamp gave me the clarity and confidence to start my BA career. The practical approach is outstanding!",
+    quote: "The Foundation Bootcamp gave me the clarity and confidence to start my BA career. The practical approach is outstanding!",
     name: "Aisha M.",
     role: "Junior Business Analyst",
     initial: "A",
@@ -168,6 +168,24 @@ const trustBadges = [
 ];
 
 /* ═══════════════════════════════════════════════════════════ */
+
+/* Short names and one-liners for the programme row under the hero. */
+const PROGRAMME_CARDS: Record<string, { title: string; blurb: string }> = {
+  "Business Analysis & Digital Transformation": { title: "Business Analysis", blurb: "Turn business needs into clear, practical solutions that deliver value." },
+  "Business Process Improvement & Operational Excellence": { title: "Process Improvement", blurb: "Find, fix and remove the everyday blockers that slow work down." },
+  "Change Management & Business Transformation": { title: "Change Management", blurb: "Plan and lead change with people, clarity and confidence." },
+  "Agile, Product & Project Delivery Management": { title: "Agile Delivery", blurb: "Deliver value faster using Agile ways of working." },
+  "Cybersecurity Bootcamp": { title: "Cybersecurity", blurb: "Build a solid foundation to recognise, reduce and manage digital risks." },
+  "AI, Large Language Models & Prompt Engineering": { title: "AI & LLM", blurb: "Understand, use and apply AI and Large Language Models to boost productivity and innovation." },
+};
+
+const FEATURES = [
+  { icon: GraduationCap, title: "Practical Learning", sub: "Real scenarios, real skills" },
+  { icon: Laptop, title: "Hands-On Experience", sub: "Simulations and guided practice" },
+  { icon: Target, title: "Career Focused", sub: "Build skills employers value" },
+  { icon: Users, title: "Expert Guidance", sub: "Learn from industry practitioners" },
+  { icon: Award, title: "Flexible & Accessible", sub: "Learn online, at your pace or in a cohort" },
+];
 
 /* ── Home page pathway folders (mirrors /courses FOLDERS) ── */
 const HOME_FOLDERS = [
@@ -273,7 +291,7 @@ const Index = () => {
     <Layout>
 
       {/* ─────────────────────── HERO ─────────────────────── */}
-      <section className="relative overflow-hidden min-h-[100vh] flex items-center -mt-[72px] pt-[72px]">
+      <section className="relative overflow-hidden min-h-[78vh] flex items-center -mt-[72px] pt-[72px]">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -288,7 +306,7 @@ const Index = () => {
 
         {/* Overlays — left text area covered, trainer on right kept clear */}
         <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, hsl(var(--hero-overlay)) 38%, hsl(var(--hero-overlay) / 0.18) 58%, transparent 70%)" }} />
+          style={{ background: "linear-gradient(to right, hsl(var(--hero-overlay) / 0.96) 30%, hsl(var(--hero-overlay) / 0.55) 50%, hsl(var(--hero-overlay) / 0.08) 68%, transparent 78%)" }} />
         <div className="absolute inset-0"
           style={{ background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 22%)" }} />
         <div className="absolute inset-0 grid-pattern opacity-20" />
@@ -297,7 +315,7 @@ const Index = () => {
         <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] rounded-full blur-[120px] animate-[pulse-glow_8s_ease-in-out_infinite]"
           style={{ background: "hsl(var(--primary) / 0.07)" }} />
 
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col min-h-[calc(100vh-72px)] justify-between py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col min-h-[calc(78vh-72px)] justify-center py-14 lg:py-20">
 
           {/* Top badge */}
           <motion.div
@@ -331,14 +349,13 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.55 }}
-                className="mb-8 max-w-2xl rounded-2xl border border-white/15 bg-slate-950/70 px-5 py-4 shadow-2xl shadow-black/30 backdrop-blur-md sm:px-6 sm:py-5"
+                className="mb-8 max-w-2xl rounded-2xl border border-white/15 bg-[hsl(var(--hero-overlay)/0.72)] px-5 py-4 shadow-2xl shadow-black/30 backdrop-blur-md sm:px-6 sm:py-5"
               >
-                <p className="text-lg lg:text-xl text-white font-bold mb-3 leading-snug [text-shadow:0_2px_10px_rgba(0,0,0,0.55)]">
-                  Business Analysis<span className="text-primary">.</span> Process Improvement<span className="text-primary">.</span> Change Management<span className="text-primary">.</span> Agile Delivery<span className="text-primary">.</span>
+                <p className="text-lg lg:text-xl text-white font-bold mb-2 leading-snug">
+                  Practical, Career-Focused Training for Today's Workplace
                 </p>
-                <p className="text-base lg:text-lg text-white/90 leading-relaxed font-medium">
-                  Practical learning. Real project simulation. Business-ready delivery skills.<br />
-                  Develop the skills, mindset and confidence to excel in today's workplace.
+                <p className="text-base lg:text-lg text-white/90 leading-relaxed">
+                  Gain in-demand skills in Business Analysis, Process Improvement, Change Management, Agile Delivery, Cybersecurity and AI &amp; LLM. Learn by doing, solve real challenges and grow your career.
                 </p>
               </motion.div>
 
@@ -352,7 +369,7 @@ const Index = () => {
                 <Button size="lg" asChild
                   className="bg-gradient-gold hover:opacity-90 font-semibold px-8 h-12 shadow-orange btn-shimmer text-sm"
                 >
-                  <Link to="/services">View Programmes <ArrowRight className="ml-2" size={16} /></Link>
+                  <Link to="/services">Explore Programmes <ArrowRight className="ml-2" size={16} /></Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild
                   className="font-semibold px-8 h-12 glass border-white/20 hover:bg-white/10 text-white text-sm"
@@ -361,62 +378,56 @@ const Index = () => {
                 </Button>
               </motion.div>
 
-              {/* Trust badges — 4 items in a row below buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-4 border-t border-white/10 pt-8"
-              >
-                {trustBadges.map((b, i) => (
-                  <div key={b.label} className="flex items-start gap-2.5">
-                    <div className={`w-7 h-7 rounded-lg ${b.iconBg} flex items-center justify-center shrink-0 mt-0.5`}>
-                      <b.icon size={14} className={b.iconColor} />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-white leading-tight">{b.label}</p>
-                      <p className="text-[10px] text-white/45 leading-snug mt-0.5">{b.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </div>
 
-          {/* Community badge — bottom right */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.5 }}
-            className="self-end mt-10 lg:mt-0"
-          >
-            <Link to="/auth" className="block glass border border-white/15 rounded-2xl px-5 py-4 text-right hover:border-primary/40 transition-colors duration-200">
-              <p className="text-sm font-semibold text-white mb-0.5">Join a community of</p>
-              <p className="text-xs text-white/50 mb-3">aspiring and practising Business Analysts</p>
-              <div className="flex items-center justify-end gap-2">
-                <div className="flex -space-x-2">
-                  {["A", "K", "S", "R", "M"].map((l, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-gold flex items-center justify-center text-xs font-bold text-white border-2"
-                      style={{ borderColor: "hsl(var(--background))" }}
-                    >
-                      {l}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30">
-                  +2K
-                </span>
-              </div>
-            </Link>
-          </motion.div>
 
         </div>
 
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-28"
           style={{ background: "linear-gradient(to top, hsl(var(--background)), transparent)" }} />
+      </section>
+
+      {/* ─────────────────── TRAINING PROGRAMMES (navy) ─────────────────── */}
+      <section className="relative py-14 lg:py-16" style={{ background: "hsl(var(--background))" }}>
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400 mb-3">Our Training Programmes</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-white mb-3">In-Demand Skills for Real-World Impact</h2>
+            <p className="text-white/70 max-w-2xl mx-auto">Practical, hands-on courses designed to help you work smarter, lead change and stay ahead in a digital world.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {HOME_FOLDERS.map((folder) => {
+              const card = PROGRAMME_CARDS[folder.key];
+              const href = folder.key === "Cybersecurity Bootcamp" ? "/cybersecurity" : `/courses?category=${encodeURIComponent(folder.key)}`;
+              return (
+                <Link key={folder.key} to={href}
+                  className="group flex flex-col rounded-2xl border border-primary/40 bg-white/[0.03] p-5 transition-colors hover:border-primary hover:bg-primary/10">
+                  <div className="flex items-center gap-3 mb-3">
+                    <folder.icon size={26} className="text-amber-400 shrink-0" />
+                    <h3 className="font-semibold text-white leading-tight">{card?.title ?? folder.label}</h3>
+                  </div>
+                  <p className="text-sm text-white/75 leading-relaxed flex-1">{card?.blurb ?? folder.description}</p>
+                  <span className="mt-4 self-end w-8 h-8 rounded-full border border-white/30 flex items-center justify-center text-white group-hover:bg-primary group-hover:border-primary transition-colors">
+                    <ArrowRight size={15} />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 border-t border-white/10 pt-8">
+            {FEATURES.map((item) => (
+              <div key={item.title} className="flex items-start gap-3">
+                <item.icon size={28} className="text-amber-400 shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-white">{item.title}</p>
+                  <p className="text-xs text-white/60">{item.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ─────────────────── LEARNING PATHWAY (white) ─────────────────── */}

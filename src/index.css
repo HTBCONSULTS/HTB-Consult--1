@@ -145,22 +145,22 @@ svg, svg * {
   /* ── BLUE THEME (default) ── */
   :root:not([data-theme]),
   [data-theme="blue"] {
-    --background: 222 55% 10%;
+    --background:210 100% 12%;
     --foreground: 0 0% 100%;
 
-    --card: 222 50% 13%;
+    --card:210 85% 15%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 222 50% 13%;
+    --popover:210 85% 15%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 217 91% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 45% 20%;
+    --secondary:210 70% 19%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 40% 17%;
+    --muted:210 65% 17%;
     --muted-foreground: 220 25% 72%;
 
     --accent: 217 85% 62%;
@@ -169,38 +169,38 @@ svg, svg * {
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 38% 22%;
-    --input: 222 38% 22%;
+    --border:210 55% 23%;
+    --input:210 55% 23%;
     --ring: 217 91% 56%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 222 60% 8%;
+    --sidebar-background:210 100% 10%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 217 91% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 45% 16%;
+    --sidebar-accent:210 70% 17%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 38% 22%;
+    --sidebar-border:210 55% 23%;
     --sidebar-ring: 217 91% 56%;
 
     --orange: 217 91% 56%;
     --orange-light: 217 85% 65%;
     --gold: 217 80% 60%;
     --gold-light: 217 70% 68%;
-    --green-dark: 222 55% 10%;
-    --green-darker: 222 60% 8%;
-    --green-light: 222 45% 16%;
+    --green-dark:210 100% 12%;
+    --green-darker:210 100% 10%;
+    --green-light:210 70% 17%;
 
     /* Theme-specific semantic vars */
-    --hero-overlay: 222 65% 5%;
-    --hero-gradient-from: 222 65% 5%;
-    --section-alt: 222 52% 9%;
-    --footer-bg: 222 65% 6%;
+    --hero-overlay:210 100% 11%;
+    --hero-gradient-from:210 100% 11%;
+    --section-alt:210 90% 11%;
+    --footer-bg:210 100% 8%;
     --accent-glow: rgba(37, 99, 235, 0.35);
     --accent-glow-soft: rgba(37, 99, 235, 0.08);
     --gradient-accent: linear-gradient(135deg, hsl(217, 91%, 56%), hsl(217, 85%, 48%));
-    --gradient-cta-bg: linear-gradient(135deg, #0d1f50 0%, #06112e 100%);
+    --gradient-cta-bg: linear-gradient(135deg, #00305f 0%, #001f3f 100%);
   }
 }
 
