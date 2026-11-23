@@ -349,12 +349,13 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.55 }}
-                className="mb-8 max-w-2xl rounded-2xl border border-white/15 bg-[hsl(var(--hero-overlay)/0.72)] px-5 py-4 shadow-2xl shadow-black/30 backdrop-blur-md sm:px-6 sm:py-5"
+                className="relative mb-9 max-w-xl pl-6"
               >
-                <p className="text-lg lg:text-xl text-white font-bold mb-2 leading-snug">
+                <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-[3px] rounded-full bg-gradient-to-b from-primary via-primary/70 to-amber-400" />
+                <p className="text-xl lg:text-2xl text-white font-semibold mb-3 leading-snug tracking-tight [text-shadow:0_2px_12px_rgba(0,20,41,0.6)]">
                   Practical, Career-Focused Training for Today's Workplace
                 </p>
-                <p className="text-base lg:text-lg text-white/90 leading-relaxed">
+                <p className="text-base lg:text-[17px] text-white/80 leading-[1.75] [text-shadow:0_1px_8px_rgba(0,20,41,0.6)]">
                   Gain in-demand skills in Business Analysis, Process Improvement, Change Management, Agile Delivery, Cybersecurity and AI &amp; LLM. Learn by doing, solve real challenges and grow your career.
                 </p>
               </motion.div>
