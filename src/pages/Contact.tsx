@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -60,7 +61,7 @@ const contactMethods = [
   {
     icon: MapPin,
     label: "Our Office",
-    value: "London, United Kingdom",
+    value: "Chesterfield, Derbyshire, UK",
     href: null,
     badge: "Mon – Fri",
     sub: "8:00 AM – 5:00 PM (GMT)",
@@ -92,14 +93,9 @@ const Contact = () => {
   return (
     <Layout>
       {/* ── Main two-column section ──────────────────────────────────────────── */}
-      <section className="relative min-h-screen bg-background overflow-hidden">
-        {/* Subtle grid */}
-        <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
-        {/* Glow orbs */}
-        <div className="absolute top-0 right-1/3 w-[500px] h-[300px] rounded-full opacity-10 blur-[120px] pointer-events-none"
-          style={{ background: "hsl(var(--primary))" }} />
-        <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] rounded-full opacity-8 blur-[100px] pointer-events-none"
-          style={{ background: "hsl(200,80%,40%)" }} />
+      <section className="relative overflow-hidden"
+        style={{ background: "linear-gradient(180deg, hsl(var(--hero-overlay)) 0%, hsl(var(--background)) 55%, hsl(var(--section-alt)) 100%)" }}>
+        <div className="absolute inset-0 grid-pattern opacity-[0.06] pointer-events-none" />
 
         <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24 relative z-10">
           <div className="grid lg:grid-cols-[1fr_420px] gap-10 xl:gap-16 items-start">
@@ -172,12 +168,12 @@ const Contact = () => {
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Button className="bg-gradient-gold hover:opacity-90 gap-2 text-sm px-5">
-                    <User size={14} /> Book a Mentoring Session
+                  <Button asChild className="bg-gradient-gold hover:opacity-90 gap-2 text-sm px-5">
+                    <Link to="/mentors"><User size={14} /> Book a Mentoring Session</Link>
                   </Button>
-                  <Button variant="outline"
+                  <Button asChild variant="outline"
                     className="border-white/20 text-white bg-transparent hover:bg-white/8 gap-2 text-sm px-5">
-                    <MessageSquare size={14} /> Contact Our Team
+                    <a href="#contact-form"><MessageSquare size={14} /> Contact Our Team</a>
                   </Button>
                 </div>
               </motion.div>
@@ -225,7 +221,7 @@ const Contact = () => {
                   Fill out the form and we'll get back to you as soon as possible.
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form id="contact-form" onSubmit={handleSubmit} className="space-y-4 scroll-mt-28">
                   {/* Full Name */}
                   <div>
                     <label className="text-xs font-semibold text-white/70 mb-1.5 block">

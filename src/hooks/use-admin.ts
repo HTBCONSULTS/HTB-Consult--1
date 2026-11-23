@@ -15,6 +15,6 @@ export function useIsAdmin() {
 export function useAdminStats() {
   return useQuery({
     queryKey: ["admin-stats"],
-    queryFn: () => api.get<{ courses: number; mentors: number; enrollments: number; users: number }>("/api/admin/stats"),
+    queryFn: () => api.get<{ courses: number; mentors: number; enrollments: number; users: number; revenue?: number; articles?: number; registrations?: number }>("/api/admin/stats"),
   });
 }

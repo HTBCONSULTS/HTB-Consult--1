@@ -1,4 +1,6 @@
 import { rememberNextPath } from "@/lib/next-path";
+import { programmeRegisterHref } from "@/lib/programmes";
+import { isWhatsAppUrl } from "@/components/WhatsAppButton";
 import { useState, useCallback, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import PaymentModal from "@/components/PaymentModal";
@@ -8,7 +10,7 @@ import {
   Bookmark, ExternalLink, Video, Download, Presentation, FileText,
   FileType, FileSpreadsheet, File, Lock, ChevronRight, Home,
   Monitor, Laptop, UserCheck, ChevronDown, ChevronUp, BarChart3,
-  Shield, Share2, Linkedin, Twitter, Mail, Heart, CreditCard, X,
+  Shield, Share2, Linkedin, Twitter, Mail, Heart, CreditCard, X, ArrowRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -111,7 +113,7 @@ const CourseDetail = () => {
     if (!data) return;
     const courseData = data.course;
     if (Number(courseData.price) > 0) {
-      setPaymentModalOpen(true);
+      navigate(programmeRegisterHref(courseData.category));
       return;
     }
     try {
@@ -243,12 +245,11 @@ const CourseDetail = () => {
 
             {isPaid ? (
               <>
-                <div className="my-6 py-4 px-6 rounded-xl bg-primary/5 border border-primary/15">
-                  <p className="text-3xl font-bold text-foreground">£{Number(course.price).toLocaleString()}</p>
-                  <p className="text-xs text-muted-foreground mt-1">One-time payment · Lifetime access</p>
-                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed my-6">
+                  This course is part of the <strong className="text-foreground">{course.category}</strong> programme. Register for the programme and our team will confirm your place, dates and next steps.
+                </p>
                 <ul className="text-sm text-muted-foreground space-y-2 text-left mb-7">
-                  {["Full course access", "Downloadable resources", "Certificate of completion", "Expert mentorship", "30-day money-back guarantee"].map(f => (
+                  {["Full programme access once confirmed", "Downloadable resources", "Certificate of completion", "Expert mentorship"].map(f => (
                     <li key={f} className="flex items-center gap-2">
                       <CheckCircle2 size={13} className="text-primary shrink-0" /> {f}
                     </li>
@@ -258,15 +259,12 @@ const CourseDetail = () => {
                   <Button
                     className="w-full bg-gradient-gold hover:opacity-90 font-semibold btn-shimmer gap-2"
                     size="lg"
-                    onClick={() => {
-                      if (!user) { rememberNextPath(`/course/${id}`); navigate("/auth?tab=signup"); return; }
-                      setPaymentModalOpen(true);
-                    }}
+                    onClick={() => navigate(programmeRegisterHref(course.category))}
                   >
-                    <CreditCard size={15} /> Pay & Enroll Now
+                    Register Now <ArrowRight size={15} />
                   </Button>
                   <Button variant="outline" className="w-full gap-2" onClick={() => navigate("/courses")}>
-                    <BookOpen size={14} /> Browse Free Courses
+                    <BookOpen size={14} /> Browse Courses
                   </Button>
                 </div>
               </>
@@ -410,7 +408,7 @@ const CourseDetail = () => {
                     {course.live_class_url && (
                       <Button size="lg" asChild className="bg-gradient-gold hover:opacity-90 gap-2 text-sm px-6 btn-shimmer">
                         <a href={course.live_class_url} target="_blank" rel="noopener noreferrer">
-                          {courseType === "live" ? <><Video size={15} /> Join Live Class</> :
+                          {courseType === "live" ? <><Video size={15} /> {isWhatsAppUrl(course.live_class_url) ? "Join Class on WhatsApp" : "Join Live Class"}</> :
                            courseType === "book" ? <><BookOpen size={15} /> Open Book</> :
                            <><Play size={15} /> Open Video</>}
                           <ExternalLink size={13} />
@@ -741,7 +739,7 @@ const CourseDetail = () => {
                 course.live_class_url ? (
                   <Button asChild className="bg-gradient-gold hover:opacity-90 font-semibold btn-shimmer px-6">
                     <a href={course.live_class_url} target="_blank" rel="noopener noreferrer">
-                      {courseType === "live" ? "Join Live Class" : "Access Course"}
+                      {courseType === "live" ? (isWhatsAppUrl(course.live_class_url) ? "Join Class on WhatsApp" : "Join Live Class") : "Access Course"}
                     </a>
                   </Button>
                 ) : null
@@ -818,12 +816,6 @@ const CourseSidebar = ({
       {/* Pricing + enroll card */}
       <Card className="border-border bg-card shadow-sm">
         <CardContent className="p-5 space-y-3">
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-bold text-foreground">
-              {course.price > 0 ? `£${Number(course.price).toLocaleString()}` : "Free"}
-            </span>
-            {course.price > 0 && <span className="text-xs text-muted-foreground">GBP</span>}
-          </div>
 
           {isEnrolled ? (
             <>
@@ -833,7 +825,7 @@ const CourseSidebar = ({
               {course.live_class_url && (
                 <Button className="w-full bg-gradient-gold hover:opacity-90 gap-2" size="lg" asChild>
                   <a href={course.live_class_url} target="_blank" rel="noopener noreferrer">
-                    {courseType === "live" ? <><Video size={14} /> Join Live Class</> :
+                    {courseType === "live" ? <><Video size={14} /> {isWhatsAppUrl(course.live_class_url) ? "Join Class on WhatsApp" : "Join Live Class"}</> :
                      courseType === "book" ? <><BookOpen size={14} /> Open Book</> :
                      <><Play size={14} /> Open Video</>}
                     <ExternalLink size={12} />

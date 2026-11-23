@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
-  BookOpen, Users, GraduationCap, UserCheck, PoundSterling,
+  BookOpen, Users, GraduationCap, UserCheck, PoundSterling, ClipboardList,
   ArrowRight, CalendarDays, FileText, TrendingUp, Eye, MousePointerClick,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -82,7 +82,8 @@ const AdminDashboard = () => {
   });
 
   const statCards = [
-    { icon: Users, label: "Registered Users", value: stats?.users ?? 0, color: "text-purple-500", bg: "bg-purple-500/10" },
+    { icon: Users, label: "Accounts Created", value: stats?.users ?? 0, color: "text-purple-500", bg: "bg-purple-500/10" },
+    { icon: ClipboardList, label: "Programme Registrations", value: stats?.registrations ?? 0, color: "text-amber-500", bg: "bg-amber-500/10" },
     { icon: GraduationCap, label: "Enrollments", value: stats?.enrollments ?? 0, color: "text-primary", bg: "bg-primary/10" },
     { icon: BookOpen, label: "Published Courses", value: stats?.courses ?? 0, color: "text-blue-500", bg: "bg-blue-500/10" },
     { icon: UserCheck, label: "Active Mentors", value: stats?.mentors ?? 0, color: "text-green-500", bg: "bg-green-500/10" },

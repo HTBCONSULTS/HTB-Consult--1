@@ -111,7 +111,7 @@ const Saved = () => {
                           <span className="flex items-center gap-1"><Star size={12} className="text-amber-400 fill-amber-400" /> {course.rating}</span>
                           <span className="px-2 py-0.5 rounded-full text-[10px] bg-primary/15 text-primary border border-primary/20">{course.category}</span>
                         </div>
-                        <p className="text-sm font-bold text-gradient-gold">{course.price > 0 ? `£${course.price}` : "Free"}</p>
+                        
                       </div>
                       <div className="flex sm:flex-col items-center gap-2 shrink-0">
                         <Button size="sm" className="text-xs bg-gradient-gold hover:opacity-90" onClick={() => navigate(`/course/${course.id}`)}>

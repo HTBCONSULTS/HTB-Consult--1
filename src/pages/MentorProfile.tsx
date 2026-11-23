@@ -12,7 +12,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar } from "@/components/ui/calendar";
 import { Textarea } from "@/components/ui/textarea";
 import { fadeUp } from "@/lib/animations";
-import SidebarLayout from "@/components/SidebarLayout";
+import Layout from "@/components/Layout";
+import { whatsappLink } from "@/components/WhatsAppButton";
+import { rememberNextPath } from "@/lib/next-path";
 import { useMentorDetail } from "@/hooks/use-mentors";
 import { useCreateBooking } from "@/hooks/use-bookings";
 import { useAuth } from "@/contexts/AuthContext";
@@ -77,6 +79,7 @@ const MentorProfile = () => {
   const handleBook = async () => {
     if (!user) {
       toast({ title: "Please sign in", description: "You need to be logged in to book a session.", variant: "destructive" });
+      rememberNextPath(`/mentor/${id}`);
       navigate("/auth");
       return;
     }
@@ -100,7 +103,7 @@ const MentorProfile = () => {
 
   if (isLoading) {
     return (
-      <SidebarLayout>
+      <Layout>
         <div className="px-4 lg:px-8 py-6 max-w-5xl mx-auto space-y-6">
           {/* Loading skeleton — stacks on mobile */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
@@ -112,18 +115,18 @@ const MentorProfile = () => {
             </div>
           </div>
         </div>
-      </SidebarLayout>
+      </Layout>
     );
   }
 
   if (!data) {
     return (
-      <SidebarLayout>
+      <Layout>
         <div className="px-4 lg:px-8 py-20 max-w-5xl mx-auto text-center">
           <h1 className="text-xl font-bold text-foreground mb-2">Mentor not found</h1>
           <Button onClick={() => navigate("/mentors")}>Browse Mentors</Button>
         </div>
-      </SidebarLayout>
+      </Layout>
     );
   }
 
@@ -146,7 +149,7 @@ const MentorProfile = () => {
   const availableDayNames = [...new Set(slots.map(s => dayNames[s.day_of_week]))];
 
   return (
-    <SidebarLayout>
+    <Layout>
       <div className="px-4 lg:px-8 py-6 max-w-5xl mx-auto space-y-6">
 
         {/* Back link */}
@@ -266,6 +269,9 @@ const MentorProfile = () => {
                   Your session with {mentor.name} on {selectedDate && format(selectedDate, "MMM d, yyyy")} at {selectedSlot?.start.slice(0, 5)} has been confirmed.
                   The mentor will be notified.
                 </p>
+                <Button asChild className="bg-[#25D366] hover:bg-[#1ebe5d] text-white">
+                  <a href={whatsappLink(`Hi, I've booked a mentoring session with ${mentor.name} on ${selectedDate ? format(selectedDate, "MMM d, yyyy") : ""} at ${selectedSlot?.start.slice(0, 5) ?? ""}. Please share the WhatsApp call details.`)} target="_blank" rel="noopener noreferrer">Join the call on WhatsApp</a>
+                </Button>
                 <Button variant="outline" onClick={() => {
                   setBookingStep("select");
                   setSelectedDate(undefined);
@@ -356,7 +362,7 @@ const MentorProfile = () => {
           )}
         </motion.div>
       </div>
-    </SidebarLayout>
+    </Layout>
   );
 };
 

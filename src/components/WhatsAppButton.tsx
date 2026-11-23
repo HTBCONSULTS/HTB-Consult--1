@@ -1,6 +1,10 @@
 import { MessageCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "447862056300";
+
+/** wa.me link to the academy WhatsApp with a pre-filled message (live calls and classes run on WhatsApp). */
+export const whatsappLink = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+export const isWhatsAppUrl = (url?: string | null) => !!url && /(^|\.)(whatsapp\.com|wa\.me)\//i.test(url.replace(/^https?:\/\//, ""));
 const WHATSAPP_MESSAGE = "Hi, I'd like to get some support from HTB Consults.";
 
 const WhatsAppButton = () => {

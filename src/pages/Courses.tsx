@@ -16,13 +16,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Layout from "@/components/Layout";
 import { fadeUp } from "@/lib/animations";
+import { programmeRegisterHref } from "@/lib/programmes";
 import { useCourses } from "@/hooks/use-courses";
 import { useEnrollments } from "@/hooks/use-enrollments";
 import { useAuth } from "@/contexts/AuthContext";
 import { breadcrumbSchema, courseListSchema, SEO_PAGES, SITE_ORIGIN, setSeoMetadata } from "@/lib/seo";
 
 /* ── Category folder metadata (6 official pathways) ── */
-const FOLDERS = [
+export const FOLDERS = [
   {
     key: "Business Analysis & Digital Transformation",
     label: "Business Analysis & Digital Transformation",
@@ -842,7 +843,7 @@ const Courses = () => {
                       <ProgrammePanel
                         programme={activeFolderMeta.programme}
                         accentColor={activeFolderMeta.iconColor}
-                        registrationHref={activeFolderMeta.key === "Cybersecurity Bootcamp" ? "/cybersecurity#register" : "/auth?tab=signup"}
+                        registrationHref={programmeRegisterHref(activeFolderMeta.key)}
                       />
                     )}
                   </>
@@ -953,13 +954,11 @@ const Courses = () => {
                               </div>
 
                               <div className="p-5 pt-0 flex items-center justify-between">
-                                <span className="text-xl font-bold text-gradient-gold">
-                                  {(course as any).price > 0 ? `£${(course as any).price}` : "Free"}
-                                </span>
+                                <span className="text-xs font-medium text-gray-500">{course.category}</span>
                                 {isLocked && !enrolledIds.has(course.id) ? (
                                   (course as any).price > 0 ? (
                                     <Button size="sm" asChild className="bg-gradient-gold hover:opacity-90 text-xs gap-1.5 btn-shimmer">
-                                      <Link to={`/course/${course.id}`}><CreditCard size={12} /> Pay to Access</Link>
+                                      <Link to={programmeRegisterHref(course.category)}>Register Now <ArrowRight size={12} /></Link>
                                     </Button>
                                   ) : (
                                     <Button

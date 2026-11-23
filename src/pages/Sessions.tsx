@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
 import { fadeUp, scaleIn } from "@/lib/animations";
 import SidebarLayout from "@/components/SidebarLayout";
+import { whatsappLink } from "@/components/WhatsAppButton";
 import { useMyBookings } from "@/hooks/use-bookings";
 
 function formatDate(d: string) {
@@ -189,6 +190,13 @@ const Sessions = () => {
                               {formatTime(b.start_time)} – {formatTime(b.end_time)}
                             </span>
                           </div>
+                          <a
+                            href={whatsappLink(`Hi, I have a mentoring session with ${b.mentor_name || "my mentor"} on ${formatDate(b.session_date)} at ${formatTime(b.start_time)}. Please share the WhatsApp call details.`)}
+                            target="_blank" rel="noopener noreferrer"
+                            className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] px-3 py-1.5 text-xs font-semibold text-white"
+                          >
+                            Join on WhatsApp
+                          </a>
                           {b.notes && (
                             <p className="mt-2 text-xs text-white/35 bg-white/3 rounded-lg px-3 py-2 border border-white/6 line-clamp-2">
                               {b.notes}

@@ -179,6 +179,9 @@ export async function runMigrations() {
       );
       CREATE INDEX IF NOT EXISTS idx_cyber_interest_created ON cybersecurity_interest_submissions(created_at DESC);
       CREATE INDEX IF NOT EXISTS idx_cyber_interest_email ON cybersecurity_interest_submissions(email);
+      -- Same form now serves every programme; existing rows are cybersecurity.
+      ALTER TABLE cybersecurity_interest_submissions ADD COLUMN IF NOT EXISTS programme TEXT NOT NULL DEFAULT 'Cybersecurity Bootcamp';
+      ALTER TABLE cybersecurity_interest_submissions ADD COLUMN IF NOT EXISTS user_id TEXT;
     `);
 
   } finally {
