@@ -4,6 +4,7 @@ import SidebarLayout from "./SidebarLayout";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import AnniversaryBadge from "./AnniversaryBadge";
 
 const PublicLayout = ({ children }: { children: ReactNode }) => (
   <div className="min-h-screen flex flex-col bg-background">
@@ -11,6 +12,7 @@ const PublicLayout = ({ children }: { children: ReactNode }) => (
     <main className="flex-1 pt-[72px]">{children}</main>
     <Footer />
     <WhatsAppButton />
+    <AnniversaryBadge />
   </div>
 );
 
